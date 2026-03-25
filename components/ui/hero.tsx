@@ -190,9 +190,11 @@ export const PremiumHero = () => {
           </p>
 
           <div className="flex flex-row gap-3 flex-wrap justify-center">
-            <Button size="sm" className="gap-4" variant="outline">
-              Contact Us <MoveRight className="w-4 h-4" />
-            </Button>
+            <a href="https://eg.linkedin.com/company/technology-pillars" target="_blank" rel="noopener noreferrer">
+              <Button size="sm" className="gap-4" variant="outline">
+                Contact Us <MoveRight className="w-4 h-4" />
+              </Button>
+            </a>
 
           </div>
         </div>
