@@ -1,9 +1,5 @@
-import Home from "@/components/ui/hero-ascii-one";
+import { PremiumHero } from "@/components/ui/hero";
 
 export default function DemoOne() {
-  return (
-    <div className="w-screen h-screen">
-      <Home />
-    </div>
-  );
+  return <PremiumHero />;
 }
