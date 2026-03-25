@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { MoveRight, PhoneCall } from "lucide-react";
+import { MoveRight } from "lucide-react";
+import { LogoCloud } from "@/components/ui/logo-cloud";
 
 interface Beam {
   x: number;
@@ -47,7 +48,7 @@ export const PremiumHero = () => {
   const LAYERS = 3;
   const BEAMS_PER_LAYER = 8;
 
-  const aiTitles = ["AI", "Infrastructure", "Cloud", "AWS", "GCP", "Azure", "ODOO"];
+  const aiTitles = ["AI", "Infrastructure", "Cloud", "AWS", "GCP", "HUAWEI", "ODOO"];
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -103,11 +104,11 @@ export const PremiumHero = () => {
 
       const pulsingOpacity = Math.min(1, beam.opacity * (0.8 + Math.sin(beam.pulse) * 0.4));
       const gradient = ctx.createLinearGradient(0, 0, 0, beam.length);
-      gradient.addColorStop(0, `rgba(0,255,255,0)`);
-      gradient.addColorStop(0.2, `rgba(0,255,255,${pulsingOpacity * 0.5})`);
-      gradient.addColorStop(0.5, `rgba(0,255,255,${pulsingOpacity})`);
-      gradient.addColorStop(0.8, `rgba(0,255,255,${pulsingOpacity * 0.5})`);
-      gradient.addColorStop(1, `rgba(0,255,255,0)`);
+      gradient.addColorStop(0, `rgba(59,130,246,0)`);
+      gradient.addColorStop(0.2, `rgba(59,130,246,${pulsingOpacity * 0.5})`);
+      gradient.addColorStop(0.5, `rgba(59,130,246,${pulsingOpacity})`);
+      gradient.addColorStop(0.8, `rgba(59,130,246,${pulsingOpacity * 0.5})`);
+      gradient.addColorStop(1, `rgba(59,130,246,0)`);
 
       ctx.fillStyle = gradient;
       ctx.filter = `blur(${2 + beam.layer * 2}px)`;
@@ -184,6 +185,8 @@ export const PremiumHero = () => {
               ))}
             </span>
           </h1>
+
+          <LogoCloud />
 
           <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
             Technology Pillars website is under construction
