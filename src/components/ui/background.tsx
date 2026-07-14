@@ -2,19 +2,34 @@ import type { CSSProperties, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-type BackgroundVariant = "glow" | "stripes";
+type BackgroundVariant = "glow" | "stripes" | "image";
 
-const layerStyles: Record<BackgroundVariant, CSSProperties> = {
-  glow: {
-    backgroundImage:
-      "radial-gradient(circle at center, #FFF991 0%, transparent 70%)",
-    opacity: 0.6,
-    mixBlendMode: "multiply",
-  },
-  stripes: {
-    backgroundImage:
-      "repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 4px)",
-  },
+const glowLayer: CSSProperties = {
+  backgroundImage:
+    "radial-gradient(circle at center, #FFF991 0%, transparent 70%)",
+  opacity: 0.6,
+  mixBlendMode: "multiply",
+};
+
+const stripesLayer: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent)",
+  backgroundSize: "6px 6px",
+};
+
+const imageLayer: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/gradient-11.webp)",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+};
+
+// Layers render in order: first = bottom, last = top.
+const layersByVariant: Record<BackgroundVariant, CSSProperties[]> = {
+  glow: [glowLayer],
+  stripes: [stripesLayer],
+  image: [imageLayer, stripesLayer],
 };
 
 export function Background({
@@ -33,11 +48,14 @@ export function Background({
         className,
       )}
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0"
-        style={layerStyles[variant]}
-      />
+      {layersByVariant[variant].map((style, i) => (
+        <div
+          key={i}
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0"
+          style={style}
+        />
+      ))}
       <div className="relative z-10 flex flex-1 flex-col">{children}</div>
     </div>
   );
