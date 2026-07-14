@@ -179,13 +179,20 @@ export function SiteHeader() {
 				<div className="flex h-full items-center justify-between">
 					<div className="flex items-center gap-2">
 						<Grid2x2PlusIcon className="size-6" />
-						<p className="font-mono text-lg font-bold">Technology Pillars</p>
+						<p className="font-mono text-lg font-bold whitespace-nowrap">
+						Technology Pillars
+					</p>
 					</div>
 
 					<div className="flex items-center gap-6">
 						<DesktopMenu onOpenChange={setMenuOpen} />
 						<div className="flex items-center gap-2">
-							<Button>Get Started</Button>
+							<Button
+								variant="stripes"
+								className="hidden font-mono text-xs font-bold uppercase tracking-wider sm:inline-flex"
+							>
+								Get Started
+							</Button>
 							<MobileNav />
 						</div>
 					</div>

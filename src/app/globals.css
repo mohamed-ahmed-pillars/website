@@ -175,3 +175,10 @@
     height: 0;
   }
 }
+
+/* Shift by exactly one 12px tile so the loop restarts pixel-identical. */
+@keyframes stripes-move {
+  to {
+    background-position: 12px 0;
+  }
+}
