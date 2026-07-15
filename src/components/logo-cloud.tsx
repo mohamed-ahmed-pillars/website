@@ -25,14 +25,21 @@ const logos: { src: string; alt: string; name?: string }[] = [
     src: "https://cdn.simpleicons.org/odoo/white",
     alt: "Odoo",
   },
+  {
+    src: "/Canonical-White-Digital.svg",
+    alt: "Canonical",
+  },
 ];
 
 export function LogoCloud() {
   return (
-    <div className="relative mx-auto w-full max-w-6xl">
+    <div className="relative mx-auto w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[96rem]">
       <InfiniteSlider pauseOnHover gap={56}>
-        {logos.map((logo) => (
-          <div key={logo.alt} className="group flex items-center gap-2 py-2">
+        {[...logos, ...logos].map((logo, i) => (
+          <div
+            key={`${logo.alt}-${i}`}
+            className="group flex items-center gap-2 py-2"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={logo.src}

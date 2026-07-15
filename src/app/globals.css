@@ -143,6 +143,22 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(0 0% 22%) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: hsl(0 0% 22%);
+    border-radius: 9999px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: hsl(0 0% 30%);
   }
   body {
     @apply bg-background text-foreground;
@@ -180,5 +196,12 @@
 @keyframes stripes-move {
   to {
     background-position: 12px 0;
+  }
+}
+
+/* Crawl the radar outline dashes; -18 = two dash periods (5 + 4). */
+@keyframes radar-dash {
+  to {
+    stroke-dashoffset: -18;
   }
 }

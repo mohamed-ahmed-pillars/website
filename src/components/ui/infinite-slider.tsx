@@ -44,7 +44,7 @@ export function InfiniteSlider({
     if (isTransitioning) {
       controls = animate(translation, [translation.get(), to], {
         ease: "linear",
-        // Normalize over half the strip (one children copy) — that is the
+        // Normalize over half the strip (one children copy) - that is the
         // distance a full loop covers, so the resume runs at loop speed.
         duration:
           currentDuration *

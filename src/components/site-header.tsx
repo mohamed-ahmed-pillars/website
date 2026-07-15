@@ -27,7 +27,7 @@ import {
 	SheetContent,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -187,12 +187,17 @@ export function SiteHeader() {
 					<div className="flex items-center gap-6">
 						<DesktopMenu onOpenChange={setMenuOpen} />
 						<div className="flex items-center gap-2">
-							<Button
-								variant="stripes"
-								className="hidden font-mono text-xs font-bold uppercase tracking-wider sm:inline-flex"
+							<a
+								href="https://wa.me/201101040838"
+								target="_blank"
+								rel="noreferrer"
+								className={cn(
+									buttonVariants({ variant: 'stripes' }),
+									'hidden font-mono text-xs font-bold uppercase tracking-wider sm:inline-flex',
+								)}
 							>
 								Get Started
-							</Button>
+							</a>
 							<MobileNav />
 						</div>
 					</div>

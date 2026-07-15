@@ -1,8 +1,18 @@
 import { ArrowRightIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 import { LogoCloud } from "@/components/logo-cloud";
 import { PillarsPanel, type Pillar } from "@/components/pillars-panel";
+import { PlatformSection } from "@/components/platform-section";
+import { FeaturesSection } from "@/components/features-section";
+import { PortalSection } from "@/components/portal-section";
+import { EnterpriseSection } from "@/components/enterprise-section";
+import { HowWeWorkSection } from "@/components/how-we-work-section";
+import { HostingSection } from "@/components/hosting-section";
+import { NewsSection } from "@/components/news-section";
+
+const WHATSAPP_URL = "https://wa.me/201101040838";
 
 const pillars: Pillar[] = [
   {
@@ -39,24 +49,55 @@ export default function Home() {
             Technology Pillars
           </h1>
           <p className="mt-8 max-w-md font-mono text-sm leading-6 text-muted-foreground">
-            Cloud, ERP, software, infrastructure, and AI — five pillars, one
+            Cloud, ERP, software, infrastructure, and AI. Five pillars, one
             partner. We design, build, and run production systems for your
             business.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Button
-              variant="stripes"
-              className="h-11 px-6 font-mono text-sm font-bold uppercase tracking-wider"
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className={cn(
+                buttonVariants({ variant: "stripes" }),
+                "h-11 px-6 font-mono text-sm font-bold uppercase tracking-wider",
+              )}
             >
               Get Started
-            </Button>
-            <Button
-              variant="stripes-dark"
-              className="h-11 px-6 font-mono text-sm font-bold uppercase tracking-wider has-data-[icon=inline-end]:pe-5"
+            </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className={cn(
+                buttonVariants({ variant: "stripes-dark" }),
+                "h-11 px-6 font-mono text-sm font-bold uppercase tracking-wider has-data-[icon=inline-end]:pe-5",
+              )}
             >
               Contact Sales
               <ArrowRightIcon data-icon="inline-end" />
-            </Button>
+            </a>
+          </div>
+
+          <div className="mt-14 flex flex-wrap items-center gap-8">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/Aws-Partner-Logo-Vector.svg-.png"
+              alt="AWS Partner"
+              className="h-16 w-auto object-contain"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/microsoft.png"
+              alt="Microsoft Partner"
+              className="h-16 w-auto object-contain"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/Odoo-Official-Partner.webp"
+              alt="Odoo Official Partner"
+              className="h-16 w-auto object-contain"
+            />
           </div>
         </div>
 
@@ -64,14 +105,32 @@ export default function Home() {
       </div>
     </section>
 
-    <section className="px-6 pb-24 pt-8 lg:px-24">
-      <p className="text-center font-mono text-xs uppercase tracking-wider text-foreground">
+    <section className="relative px-6 pb-24 pt-8 lg:px-24">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,transparent,black_45%)]"
+      />
+      <p className="text-center font-mono text-base font-bold uppercase tracking-wider text-foreground">
         Our technology partners
       </p>
       <div className="mt-10">
         <LogoCloud />
       </div>
     </section>
+
+    <PlatformSection />
+
+    <PortalSection />
+
+    <FeaturesSection />
+
+    <EnterpriseSection />
+
+    <HowWeWorkSection />
+
+    <HostingSection />
+
+    <NewsSection />
     </>
   );
 }
