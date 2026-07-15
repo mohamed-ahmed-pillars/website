@@ -1,4 +1,4 @@
-import { Grid2x2PlusIcon } from "lucide-react";
+import { TpLogo } from "@/components/logo";
 
 const WHATSAPP_URL = "https://wa.me/201101040838";
 
@@ -6,30 +6,30 @@ const COLUMNS = [
   {
     heading: "Pillars",
     links: [
-      { label: "Cloud Pillar", href: "#" },
-      { label: "ERP Pillar", href: "#" },
-      { label: "Software Pillar", href: "#" },
-      { label: "Infrastructure Pillar", href: "#" },
-      { label: "AI Pillar", href: "#" },
+      { label: "Cloud Pillar", href: "/under-construction" },
+      { label: "ERP Pillar", href: "/under-construction" },
+      { label: "Software Pillar", href: "/under-construction" },
+      { label: "Infrastructure Pillar", href: "/under-construction" },
+      { label: "AI Pillar", href: "/under-construction" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "About", href: "#" },
-      { label: "News", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Partners", href: "#" },
+      { label: "About", href: "/under-construction" },
+      { label: "News", href: "/under-construction" },
+      { label: "Careers", href: "/under-construction" },
+      { label: "Partners", href: "/under-construction" },
       { label: "Contact Sales", href: WHATSAPP_URL },
     ],
   },
   {
     heading: "Legal",
     links: [
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms of Service", href: "#" },
-      { label: "SLA", href: "#" },
-      { label: "DPA", href: "#" },
+      { label: "Privacy Policy", href: "/under-construction" },
+      { label: "Terms of Service", href: "/under-construction" },
+      { label: "SLA", href: "/under-construction" },
+      { label: "DPA", href: "/under-construction" },
     ],
   },
 ];
@@ -75,7 +75,7 @@ export function SiteFooter() {
 
         <div className="mt-24 flex flex-wrap items-center justify-between gap-x-12 gap-y-8">
           <div className="flex items-center gap-3 text-foreground">
-            <Grid2x2PlusIcon className="size-9" />
+            <TpLogo className="size-9" />
             <p className="whitespace-nowrap font-mono text-3xl font-bold sm:text-4xl">
               Technology Pillars
             </p>

@@ -68,7 +68,7 @@ export function HostingSection() {
               Cloud pricing.
             </p>
             <a
-              href="#"
+              href="/under-construction"
               className="mt-10 inline-flex items-center gap-2 font-mono text-sm font-bold text-neutral-900 transition-colors hover:text-neutral-600"
             >
               TP Public Cloud

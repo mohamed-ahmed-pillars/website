@@ -119,7 +119,7 @@ export function NewsSection() {
                 <ArrowRightIcon className="size-4" />
               </button>
               <a
-                href="#"
+                href="/under-construction"
                 className="inline-flex items-center gap-2 rounded-md border border-border bg-[#141414] px-3.5 py-2 font-mono text-xs font-bold uppercase tracking-wider text-foreground/80 transition-colors hover:bg-[#1c1c1c] hover:text-foreground"
               >
                 All news
@@ -166,7 +166,7 @@ export function NewsSection() {
                   {item.desc}
                 </p>
                 <a
-                  href="#"
+                  href="/under-construction"
                   className="mt-auto inline-flex items-center gap-1.5 pt-8 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground/80 transition-colors hover:text-foreground"
                 >
                   Read more

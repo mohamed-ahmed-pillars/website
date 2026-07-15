@@ -219,7 +219,7 @@ export function HowWeWorkSection() {
                 </div>
 
                 <a
-                  href="#"
+                  href="/under-construction"
                   className="mt-8 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-primary transition-colors hover:text-primary/80"
                 >
                   Learn more

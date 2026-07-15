@@ -3,7 +3,6 @@
 import React from 'react';
 import {
 	CodeIcon,
-	Grid2x2PlusIcon,
 	GlobeIcon,
 	LayersIcon,
 	UserPlusIcon,
@@ -28,6 +27,7 @@ import {
 	SheetTrigger,
 } from '@/components/ui/sheet';
 import { Button, buttonVariants } from '@/components/ui/button';
+import { TpLogo } from '@/components/logo';
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -52,45 +52,45 @@ import { cn } from '@/lib/utils';
 export const productLinks: NavItemType[] = [
 	{
 		title: 'Website Builder',
-		href: '#',
+		href: '/under-construction',
 		description: 'Create responsive websites with ease',
 		icon: GlobeIcon,
 	},
 	{
 		title: 'Cloud Platform',
-		href: '#',
+		href: '/under-construction',
 		description: 'Deploy and scale apps in the cloud',
 		icon: LayersIcon,
 	},
 	{
 		title: 'Team Collaboration',
-		href: '#',
+		href: '/under-construction',
 		description: 'Tools to help your teams work better together',
 		icon: UserPlusIcon,
 	},
 	{
 		title: 'Analytics',
-		href: '#',
+		href: '/under-construction',
 		icon: BarChart,
 	},
 	{
 		title: 'Integrations',
-		href: '#',
+		href: '/under-construction',
 		icon: PlugIcon,
 	},
 	{
 		title: 'E-Commerce',
-		href: '#',
+		href: '/under-construction',
 		icon: DollarSign,
 	},
 	{
 		title: 'Security',
-		href: '#',
+		href: '/under-construction',
 		icon: Shield,
 	},
 	{
 		title: 'API',
-		href: '#',
+		href: '/under-construction',
 		icon: CodeIcon,
 	},
 ];
@@ -98,49 +98,49 @@ export const productLinks: NavItemType[] = [
 export const companyLinks: NavItemType[] = [
 	{
 		title: 'About Us',
-		href: '#',
+		href: '/under-construction',
 		description: 'Learn more about our story and team',
 		icon: Users,
 	},
 	{
 		title: 'Customer Stories',
-		href: '#',
+		href: '/under-construction',
 		description: 'See how we’ve helped our clients succeed',
 		icon: Star,
 	},
 	{
 		title: 'Terms of Service',
-		href: '#',
+		href: '/under-construction',
 		description: 'Understand how we operate',
 		icon: FileText,
 	},
 	{
 		title: 'Privacy Policy',
-		href: '#',
+		href: '/under-construction',
 		description: 'How we protect your information',
 		icon: Shield,
 	},
 	{
 		title: 'Refund Policy',
-		href: '#',
+		href: '/under-construction',
 		description: 'Details about refunds and cancellations',
 		icon: RotateCcw,
 	},
 	{
 		title: 'Partnerships',
-		href: '#',
+		href: '/under-construction',
 		icon: Handshake,
 		description: 'Collaborate with us for mutual growth',
 	},
 	{
 		title: 'Blog',
-		href: '#',
+		href: '/under-construction',
 		icon: Leaf,
 		description: 'Insights, tutorials, and company news',
 	},
 	{
 		title: 'Help Center',
-		href: '#',
+		href: '/under-construction',
 		icon: HelpCircle,
 		description: 'Find answers to your questions',
 	},
@@ -178,7 +178,7 @@ export function SiteHeader() {
 				/>
 				<div className="flex h-full items-center justify-between">
 					<div className="flex items-center gap-2">
-						<Grid2x2PlusIcon className="size-6" />
+						<TpLogo className="size-6" />
 						<p className="font-mono text-lg font-bold whitespace-nowrap">
 						Technology Pillars
 					</p>
@@ -219,7 +219,7 @@ function DesktopMenu({
 		>
 			<NavigationMenuList>
 				<NavigationMenuItem>
-					<NavigationMenuTrigger>Product</NavigationMenuTrigger>
+					<NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
 					<NavigationMenuContent>
 						<div className="mx-auto grid w-full md:w-4xl md:grid-cols-[1fr_.30fr]">
 							<ul className="grid grow gap-4 p-4 md:grid-cols-3 md:border-r">
@@ -272,7 +272,10 @@ function DesktopMenu({
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
-					<NavigationMenuLink className="cursor-pointer">
+					<NavigationMenuLink
+						href="/under-construction"
+						className="cursor-pointer"
+					>
 						Pricing
 					</NavigationMenuLink>
 				</NavigationMenuItem>
@@ -285,7 +288,7 @@ function MobileNav() {
 	const sections = [
 		{
 			id: 'product',
-			name: 'Product',
+			name: 'Solutions',
 			list: productLinks,
 		},
 		{
