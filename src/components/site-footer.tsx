@@ -95,8 +95,8 @@ export function SiteFooter() {
 
         <div className="mt-24 flex flex-wrap items-center justify-between gap-x-12 gap-y-8">
           <div className="flex items-center gap-3 text-foreground">
-            <TpLogo className="size-9" />
-            <p className="whitespace-nowrap font-mono text-3xl font-bold sm:text-4xl">
+            <TpLogo className="size-7 sm:size-9" />
+            <p className="whitespace-nowrap font-mono text-xl font-bold sm:text-3xl lg:text-4xl">
               Technology Pillars
             </p>
           </div>

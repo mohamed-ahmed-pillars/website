@@ -141,7 +141,7 @@ export function NewsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="flex w-[400px] shrink-0 snap-start flex-col overflow-hidden rounded-[10px] border border-border bg-[#0d0d0d]"
+              className="flex w-[300px] shrink-0 snap-start flex-col overflow-hidden rounded-[10px] border border-border bg-[#0d0d0d] sm:w-[400px]"
             >
               <Banner banner={item.banner} />
               <div className="flex flex-1 flex-col p-6">

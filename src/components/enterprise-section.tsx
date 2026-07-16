@@ -9,43 +9,68 @@ import {
   ServerIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 const ITEMS = [
   {
     Icon: CloudIcon,
     title: "Cloud Pillar",
     desc: "AWS, Azure, GCP, Huawei Cloud, and TP Public Cloud managed as one estate",
-    compliance: ["ISO 27001", "SOC 2", "GDPR"],
+    compliance: [
+      { name: "ISO 27001", featured: true },
+      { name: "SOC 2" },
+      { name: "GDPR" },
+    ],
   },
   {
     Icon: BoxesIcon,
     title: "ERP Pillar",
     desc: "Odoo and TP POS implemented, customized, and supported end to end",
-    compliance: ["PCI DSS", "IFRS", "GDPR"],
+    compliance: [
+      { name: "PCI DSS", featured: true },
+      { name: "IFRS" },
+      { name: "GDPR" },
+    ],
   },
   {
     Icon: CodeIcon,
     title: "Software Pillar",
     desc: "Web applications, websites, and omni-channel customer service built to spec",
-    compliance: ["OWASP", "WCAG 2.1", "GDPR"],
+    compliance: [
+      { name: "OWASP", featured: true },
+      { name: "WCAG 2.1" },
+      { name: "GDPR" },
+    ],
   },
   {
     Icon: ServerIcon,
     title: "Infrastructure Pillar",
     desc: "On-premises, private cloud, and networking, air-gapped when compliance demands it",
-    compliance: ["ISO 27001", "ISO 22301", "PCI DSS"],
+    compliance: [
+      { name: "ISO 27001", featured: true },
+      { name: "ISO 22301" },
+      { name: "PCI DSS" },
+    ],
   },
   {
     Icon: BotIcon,
     title: "AI Pillar",
     desc: "AI agents and automation working on your data, under your policies",
-    compliance: ["ISO 42001", "GDPR", "SOC 2"],
+    compliance: [
+      { name: "ISO 42001", featured: true },
+      { name: "GDPR" },
+      { name: "SOC 2" },
+    ],
   },
   {
     Icon: ClockIcon,
     title: "Managed 24/7",
     desc: "Monitoring, backups, and support around the clock from a single team",
-    compliance: ["ISO 20000", "SOC 2", "ISO 27001"],
+    compliance: [
+      { name: "ISO 20000", featured: true },
+      { name: "SOC 2" },
+      { name: "ISO 27001" },
+    ],
   },
 ];
 
@@ -102,10 +127,15 @@ export function EnterpriseSection() {
               <div className="mt-6 flex flex-wrap gap-2">
                 {item.compliance.map((c) => (
                   <span
-                    key={c}
-                    className="rounded-md border border-border/70 bg-white/[0.03] px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-muted-foreground"
+                    key={c.name}
+                    className={cn(
+                      "rounded-md border px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider",
+                      c.featured
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-border/70 bg-white/[0.03] text-muted-foreground",
+                    )}
                   >
-                    {c}
+                    {c.name}
                   </span>
                 ))}
               </div>

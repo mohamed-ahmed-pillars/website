@@ -65,15 +65,16 @@ function cylinder(
 }
 
 const wire = {
-  stroke: "white",
   strokeWidth: 1.3,
   fill: "none",
   strokeLinejoin: "round" as const,
 };
 
-function ArtCloudEstate() {
+type ArtProps = { stroke: string };
+
+function ArtCloudEstate({ stroke }: ArtProps) {
   return (
-    <svg viewBox="0 0 260 220" className="h-full w-full">
+    <svg viewBox="0 0 260 220" stroke={stroke} className="h-full w-full">
       <path {...wire} d={isoBox(130, 118, 46, 46, 38)} />
       <path {...wire} d={isoBox(76, 150, 28, 28, 22)} />
       <path {...wire} d={isoBox(184, 152, 34, 34, 12)} />
@@ -82,9 +83,9 @@ function ArtCloudEstate() {
   );
 }
 
-function ArtErpStack() {
+function ArtErpStack({ stroke }: ArtProps) {
   return (
-    <svg viewBox="0 0 260 220" className="h-full w-full">
+    <svg viewBox="0 0 260 220" stroke={stroke} className="h-full w-full">
       <path {...wire} d={isoBox(130, 158, 64, 46, 14)} />
       <path {...wire} d={isoBox(130, 134, 54, 38, 14)} />
       <path {...wire} d={isoBox(130, 110, 44, 30, 14)} />
@@ -93,9 +94,9 @@ function ArtErpStack() {
   );
 }
 
-function ArtMonitoring() {
+function ArtMonitoring({ stroke }: ArtProps) {
   return (
-    <svg viewBox="0 0 260 220" className="h-full w-full">
+    <svg viewBox="0 0 260 220" stroke={stroke} className="h-full w-full">
       <path {...wire} d={isoBox(88, 158, 22, 22, 32)} />
       <path {...wire} d={isoBox(130, 166, 22, 22, 58)} />
       <path {...wire} d={isoBox(172, 174, 22, 22, 86)} />
@@ -104,9 +105,9 @@ function ArtMonitoring() {
   );
 }
 
-function ArtDeploy() {
+function ArtDeploy({ stroke }: ArtProps) {
   return (
-    <svg viewBox="0 0 260 220" className="h-full w-full">
+    <svg viewBox="0 0 260 220" stroke={stroke} className="h-full w-full">
       <path {...wire} d={isoBox(130, 172, 58, 58, 24)} />
       <path {...wire} d={isoBox(130, 78, 26, 26, 22)} />
       <path
@@ -118,9 +119,9 @@ function ArtDeploy() {
   );
 }
 
-function ArtSecurity() {
+function ArtSecurity({ stroke }: ArtProps) {
   return (
-    <svg viewBox="0 0 260 220" className="h-full w-full">
+    <svg viewBox="0 0 260 220" stroke={stroke} className="h-full w-full">
       <path
         {...wire}
         d="M130 42 C152 60 176 66 194 66 C194 118 176 160 130 184 C84 160 66 118 66 66 C84 66 108 60 130 42 Z"
@@ -135,9 +136,9 @@ function ArtSecurity() {
   );
 }
 
-function ArtData() {
+function ArtData({ stroke }: ArtProps) {
   return (
-    <svg viewBox="0 0 260 220" className="h-full w-full">
+    <svg viewBox="0 0 260 220" stroke={stroke} className="h-full w-full">
       <path {...wire} d={cylinder(130, 62, 48, 15, 34)} />
       <path {...wire} d={cylinder(130, 108, 48, 15, 34)} />
       <path {...wire} d={cylinder(130, 154, 48, 15, 34)} />
@@ -228,7 +229,7 @@ export function FeaturesSection() {
                   className="flex h-[460px] items-center justify-center border-t border-dashed border-border bg-[linear-gradient(45deg,rgba(255,255,255,0.14)_12.5%,transparent_12.5%,transparent_50%,rgba(255,255,255,0.14)_50%,rgba(255,255,255,0.14)_62.5%,transparent_62.5%,transparent)] p-8"
                   style={{ backgroundSize: wide ? "10px 10px" : "6px 6px" }}
                 >
-                  <f.Art />
+                  <f.Art stroke={wide ? "var(--primary)" : "white"} />
                 </div>
               </motion.div>
             );

@@ -114,15 +114,20 @@ export function PlatformSection() {
                   strokeWidth="0.5"
                 />
               ))}
+              {/* Entrances are variants inherited from the card div: Safari's
+                  IntersectionObserver never fires for SVG child elements, so
+                  whileInView directly on these would stay stuck at opacity 0
+                  on iPhones. */}
               <motion.polygon
                 points={PROVIDER_A}
                 fill="rgba(255, 255, 255, 0.09)"
                 stroke="var(--chart-3)"
                 strokeOpacity="0.8"
                 strokeWidth="1"
-                initial={{ opacity: 0, scale: 0.6 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.6 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 style={{ transformOrigin: `${CX}px ${CY}px` }}
               />
@@ -132,16 +137,18 @@ export function PlatformSection() {
                 stroke="var(--chart-3)"
                 strokeOpacity="0.8"
                 strokeWidth="1"
-                initial={{ opacity: 0, scale: 0.6 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.6 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
                 transition={{ duration: 0.6, delay: 0.45 }}
                 style={{ transformOrigin: `${CX}px ${CY}px` }}
               />
               <motion.g
-                initial={{ opacity: 0, scale: 0.6 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.6 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
                 transition={{ duration: 0.7, delay: 0.6 }}
                 style={{
                   transformOrigin: `${CX}px ${CY}px`,
@@ -176,9 +183,10 @@ export function PlatformSection() {
                     cy={y}
                     r="3"
                     fill="var(--primary)"
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    variants={{
+                      hidden: { opacity: 0, scale: 0 },
+                      visible: { opacity: 1, scale: 1 },
+                    }}
                     transition={{
                       type: "spring",
                       stiffness: 300,
@@ -287,9 +295,12 @@ export function PlatformSection() {
               Operations Lifecycle
             </h3>
             <div className="relative mx-auto my-auto mt-8 aspect-square w-full max-w-[360px]">
+              {/* All orbit geometry is in % of the square stage (designed at
+                  360px: ring inset 42px, radius 138px, nodes 80px) so the
+                  card scales cleanly on small screens. */}
               <div
                 aria-hidden
-                className="absolute inset-[42px] rounded-full border border-dashed border-border"
+                className="absolute inset-[11.7%] rounded-full border border-dashed border-border"
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <p className="text-center font-mono text-[11px] font-bold uppercase leading-relaxed tracking-wider text-foreground">
@@ -305,8 +316,8 @@ export function PlatformSection() {
               >
               {CYCLE_NODES.map((node, i) => {
                 const angle = ((i * 45 - 90) * Math.PI) / 180;
-                const x = Math.cos(angle) * CYCLE_R;
-                const y = Math.sin(angle) * CYCLE_R;
+                const x = Math.cos(angle) * ((CYCLE_R / 360) * 100);
+                const y = Math.sin(angle) * ((CYCLE_R / 360) * 100);
                 return (
                   <motion.div
                     key={node}
@@ -319,10 +330,10 @@ export function PlatformSection() {
                       damping: 20,
                       delay: 0.3 + i * 0.1,
                     }}
-                    className="absolute flex size-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-primary/40 bg-background"
+                    className="absolute flex aspect-square w-[22.2%] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-primary/40 bg-background"
                     style={{
-                      left: `calc(50% + ${x.toFixed(1)}px)`,
-                      top: `calc(50% + ${y.toFixed(1)}px)`,
+                      left: `calc(50% + ${x.toFixed(2)}%)`,
+                      top: `calc(50% + ${y.toFixed(2)}%)`,
                     }}
                   >
                     <motion.span
@@ -332,7 +343,7 @@ export function PlatformSection() {
                         ease: "linear",
                         repeat: Infinity,
                       }}
-                      className="font-mono text-[11px] font-bold uppercase tracking-wide text-foreground"
+                      className="font-mono text-[9px] font-bold uppercase tracking-wide text-foreground sm:text-[11px]"
                     >
                       {node}
                     </motion.span>
