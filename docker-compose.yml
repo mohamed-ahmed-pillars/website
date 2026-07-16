@@ -1,20 +1,41 @@
 services:
-  web:
-    build: .
-    image: technologypillars-website
-    restart: unless-stopped
-    networks:
-      - traefik
-    labels:
-      - traefik.enable=true
-      # Set DOMAIN in the VPS environment (or an .env file next to this
-      # compose file), and adjust the entrypoint and certresolver names
-      # to match the Traefik instance on the server.
-      - traefik.http.routers.tp-website.rule=Host(`${DOMAIN:-technologypillars.example.com}`)
-      - traefik.http.routers.tp-website.entrypoints=websecure
-      - traefik.http.routers.tp-website.tls.certresolver=letsencrypt
-      - traefik.http.services.tp-website.loadbalancer.server.port=3000
-
-networks:
   traefik:
-    external: true
+    image: traefik:v3.6
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=mohamed.ahmed@technologypillars.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      # Uncomment for staging/testing
+      # - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./letsencrypt:/letsencrypt"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.web.rule=Host(`technologypillars.com`) || Host(`www.technologypillars.com`)"
+      - "traefik.http.routers.web.entrypoints=web"
+      - "traefik.http.routers.web.middlewares=redirect-to-https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.web-secure.rule=Host(`technologypillars.com`) || Host(`www.technologypillars.com`)"
+      - "traefik.http.routers.web-secure.entrypoints=websecure"
+      - "traefik.http.routers.web-secure.tls=true"
+      - "traefik.http.routers.web-secure.tls.certresolver=myresolver"
+      - "traefik.http.services.web.loadbalancer.server.port=3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
