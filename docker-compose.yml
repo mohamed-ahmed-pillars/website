@@ -1,0 +1,20 @@
+services:
+  web:
+    build: .
+    image: technologypillars-website
+    restart: unless-stopped
+    networks:
+      - traefik
+    labels:
+      - traefik.enable=true
+      # Set DOMAIN in the VPS environment (or an .env file next to this
+      # compose file), and adjust the entrypoint and certresolver names
+      # to match the Traefik instance on the server.
+      - traefik.http.routers.tp-website.rule=Host(`${DOMAIN:-technologypillars.example.com}`)
+      - traefik.http.routers.tp-website.entrypoints=websecure
+      - traefik.http.routers.tp-website.tls.certresolver=letsencrypt
+      - traefik.http.services.tp-website.loadbalancer.server.port=3000
+
+networks:
+  traefik:
+    external: true
