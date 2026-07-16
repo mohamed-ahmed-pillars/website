@@ -196,7 +196,7 @@ export function SiteHeader() {
 				/>
 				<div className="flex h-full items-center justify-between">
 					<div className="flex items-center gap-2">
-						<TpLogo className="size-6" />
+						<TpLogo className="size-6 text-primary" />
 						<p className="font-mono text-lg font-bold whitespace-nowrap">
 						Technology Pillars
 					</p>
