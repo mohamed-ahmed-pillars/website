@@ -341,7 +341,7 @@ function MobileNav() {
 						{sections.map((section) => (
 							<AccordionItem key={section.id} value={section.id}>
 								<AccordionTrigger className="capitalize hover:no-underline">
-									{section.id}
+									{section.name}
 								</AccordionTrigger>
 								<AccordionContent className="space-y-1">
 									<ul className="grid gap-1">

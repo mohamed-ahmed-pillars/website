@@ -167,6 +167,15 @@
   html {
     @apply font-sans;
   }
+  /* Nothing may widen the layout viewport: overflowing content gets
+     clipped instead of stretching the page, which on phones shows up
+     as the browser rhythmically zooming in and out while scrolling.
+     clip (not hidden) so no scroll container is created and the
+     sticky header keeps working. */
+  html,
+  body {
+    overflow-x: clip;
+  }
 }
 
 @theme inline {
