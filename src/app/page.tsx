@@ -48,7 +48,7 @@ export default function Home() {
             <br />
             Technology Pillars
           </h1>
-          <p className="mt-8 max-w-md font-mono text-sm leading-6 text-muted-foreground">
+          <p className="mt-8 max-w-md font-mono text-sm font-bold leading-6 text-foreground/80">
             Cloud, ERP, software, infrastructure, and AI. Five pillars, one
             partner. We design, build, and run production systems for your
             business.

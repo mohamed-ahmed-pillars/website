@@ -192,7 +192,7 @@ export function FeaturesSection() {
           <h2 className="font-mono text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             Everything Built In
           </h2>
-          <p className="mx-auto mt-5 max-w-xl font-mono text-base leading-7 text-muted-foreground">
+          <p className="mx-auto mt-5 max-w-xl font-mono text-base font-bold leading-7 text-foreground/80">
             TP is not just a provider; it is your technology partner. Six ways
             we carry your estate from day one.
           </p>
@@ -220,7 +220,7 @@ export function FeaturesSection() {
                   <h3 className="font-mono text-xl font-bold text-foreground">
                     {f.title}
                   </h3>
-                  <p className="mt-3 max-w-xl font-mono text-sm leading-6 text-muted-foreground">
+                  <p className="mt-3 max-w-xl font-mono text-sm font-bold leading-6 text-foreground/75">
                     {f.desc}
                   </p>
                 </div>

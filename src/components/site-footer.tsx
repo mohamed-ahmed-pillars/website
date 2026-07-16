@@ -46,8 +46,28 @@ const SOCIALS = [
 export function SiteFooter() {
   return (
     <footer className="bg-black px-6 pb-10 pt-24 lg:px-12">
-      <div className="mx-auto w-full max-w-[1700px] rounded-[18px] bg-[#0e0e0e] px-8 py-14 sm:px-12 lg:px-16">
-        <div className="flex justify-start lg:justify-end">
+      <div className="mx-auto w-full max-w-[1900px] rounded-[18px] bg-[#0e0e0e] px-8 py-14 sm:px-12 lg:px-16">
+        <div className="flex flex-col gap-14 lg:flex-row lg:items-start lg:justify-between">
+          <div className="flex flex-wrap items-center gap-6">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/Aws-Partner-Logo-Vector.svg-.png"
+              alt="AWS Partner"
+              className="h-20 w-auto object-contain"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/microsoft.png"
+              alt="Microsoft Partner"
+              className="h-20 w-auto object-contain"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/Odoo-Official-Partner.webp"
+              alt="Odoo Official Partner"
+              className="h-20 w-auto object-contain"
+            />
+          </div>
           <div className="grid w-full grid-cols-2 gap-x-12 gap-y-10 sm:grid-cols-3 lg:w-auto lg:gap-x-24">
             {COLUMNS.map((col) => (
               <div key={col.heading}>

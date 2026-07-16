@@ -27,7 +27,7 @@ export function PillarsPanel({ pillars }: { pillars: Pillar[] }) {
       className="overflow-hidden rounded-lg border bg-background shadow-[0_0_32px_rgba(255,255,255,0.08)]"
     >
       <div className="flex items-center justify-between border-b px-6 py-4">
-        <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+        <p className="font-mono text-xs font-bold uppercase tracking-wider text-foreground/80">
           Your Technology Pillars
         </p>
         <p className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-primary">
@@ -53,7 +53,7 @@ export function PillarsPanel({ pillars }: { pillars: Pillar[] }) {
                 <p className="text-base font-medium text-foreground">
                   {pillar.name}
                 </p>
-                <p className="mt-1.5 font-mono text-xs leading-5 text-muted-foreground">
+                <p className="mt-1.5 font-mono text-xs font-bold leading-5 text-foreground/75">
                   {pillar.items.join(" · ")}
                 </p>
               </div>
@@ -75,11 +75,11 @@ export function PillarsPanel({ pillars }: { pillars: Pillar[] }) {
       </ul>
 
       <div className="flex items-center justify-between px-6 py-3">
-        <p className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+        <p className="flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-foreground/75">
           <span className="animate-pulse text-primary">●</span>
           {pillars.length} pillars active
         </p>
-        <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-wider text-foreground/75">
           {totalServices} services monitored
         </p>
       </div>

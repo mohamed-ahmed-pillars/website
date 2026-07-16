@@ -2,21 +2,24 @@
 
 import React from 'react';
 import {
+	BotIcon,
+	BoxesIcon,
+	CloudIcon,
+	CloudUploadIcon,
 	CodeIcon,
 	GlobeIcon,
-	LayersIcon,
-	UserPlusIcon,
+	HardDriveIcon,
+	HeadsetIcon,
+	ServerIcon,
+	ShoppingCartIcon,
 	Users,
 	Star,
 	FileText,
 	Shield,
-	RotateCcw,
+	NewspaperIcon,
 	Handshake,
 	Leaf,
 	HelpCircle,
-	DollarSign,
-	BarChart,
-	PlugIcon,
 	MenuIcon,
 	XIcon,
 } from 'lucide-react';
@@ -51,47 +54,62 @@ import { cn } from '@/lib/utils';
 
 export const productLinks: NavItemType[] = [
 	{
-		title: 'Website Builder',
+		title: 'Cloud Pillar',
 		href: '/under-construction',
-		description: 'Create responsive websites with ease',
+		description: 'AWS, Azure, GCP, Huawei Cloud, and TP Public Cloud',
+		icon: CloudIcon,
+	},
+	{
+		title: 'ERP Pillar',
+		href: '/under-construction',
+		description: 'Odoo and TP POS implemented, customized, and supported',
+		icon: BoxesIcon,
+	},
+	{
+		title: 'Software Pillar',
+		href: '/under-construction',
+		description: 'Web apps, websites, and omni-channel customer service',
+		icon: CodeIcon,
+	},
+	{
+		title: 'Infrastructure Pillar',
+		href: '/under-construction',
+		description: 'On-premises, private cloud, and networking',
+		icon: ServerIcon,
+	},
+	{
+		title: 'AI Pillar',
+		href: '/under-construction',
+		description: 'AI agents and automation working on your data',
+		icon: BotIcon,
+	},
+];
+
+export const serviceLinks: NavItemType[] = [
+	{
+		title: 'TP Public Cloud',
+		href: '/under-construction',
 		icon: GlobeIcon,
 	},
 	{
-		title: 'Cloud Platform',
+		title: 'TP POS',
 		href: '/under-construction',
-		description: 'Deploy and scale apps in the cloud',
-		icon: LayersIcon,
+		icon: ShoppingCartIcon,
 	},
 	{
-		title: 'Team Collaboration',
+		title: 'Managed Hosting',
 		href: '/under-construction',
-		description: 'Tools to help your teams work better together',
-		icon: UserPlusIcon,
+		icon: HardDriveIcon,
 	},
 	{
-		title: 'Analytics',
+		title: 'Cloud Migration',
 		href: '/under-construction',
-		icon: BarChart,
+		icon: CloudUploadIcon,
 	},
 	{
-		title: 'Integrations',
+		title: '24/7 Support',
 		href: '/under-construction',
-		icon: PlugIcon,
-	},
-	{
-		title: 'E-Commerce',
-		href: '/under-construction',
-		icon: DollarSign,
-	},
-	{
-		title: 'Security',
-		href: '/under-construction',
-		icon: Shield,
-	},
-	{
-		title: 'API',
-		href: '/under-construction',
-		icon: CodeIcon,
+		icon: HeadsetIcon,
 	},
 ];
 
@@ -121,10 +139,10 @@ export const companyLinks: NavItemType[] = [
 		icon: Shield,
 	},
 	{
-		title: 'Refund Policy',
+		title: 'News',
 		href: '/under-construction',
-		description: 'Details about refunds and cancellations',
-		icon: RotateCcw,
+		description: 'Announcements, partnerships, and updates',
+		icon: NewspaperIcon,
 	},
 	{
 		title: 'Partnerships',
@@ -219,18 +237,18 @@ function DesktopMenu({
 		>
 			<NavigationMenuList>
 				<NavigationMenuItem>
-					<NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+					<NavigationMenuTrigger>Services</NavigationMenuTrigger>
 					<NavigationMenuContent>
-						<div className="mx-auto grid w-full md:w-4xl md:grid-cols-[1fr_.30fr]">
-							<ul className="grid grow gap-4 p-4 md:grid-cols-3 md:border-r">
-								{productLinks.slice(0, 3).map((link) => (
-									<li key={link.title}>
-										<NavGridCard link={link} />
+						<div className="mx-auto grid w-full max-w-full md:w-[1345px] md:grid-cols-[1fr_207px]">
+							<ul className="grid grow gap-4 p-4 md:grid-cols-5 md:border-r">
+								{productLinks.map((link) => (
+									<li key={link.title} className="h-full">
+										<NavGridCard link={link} className="min-h-52" />
 									</li>
 								))}
 							</ul>
 							<ul className="space-y-1 p-4">
-								{productLinks.slice(3).map((link) => (
+								{serviceLinks.map((link) => (
 									<li key={link.title}>
 										<NavSmallItem
 											item={link}
@@ -288,7 +306,7 @@ function MobileNav() {
 	const sections = [
 		{
 			id: 'product',
-			name: 'Solutions',
+			name: 'Services',
 			list: productLinks,
 		},
 		{
