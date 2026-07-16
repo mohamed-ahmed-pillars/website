@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import { ArrowLeftIcon, ArrowRightIcon, LayoutGridIcon } from "lucide-react";
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { TpLogo } from "@/components/logo";
 
 type NewsBanner =
   | { type: "lockup"; text: string }
@@ -199,10 +200,7 @@ export function NewsSection() {
           </div>
 
           <div>
-            <LayoutGridIcon
-              strokeWidth={1.5}
-              className="size-9 text-neutral-900"
-            />
+            <TpLogo className="size-9 text-neutral-900" />
             <h3 className="mt-6 max-w-sm text-3xl font-medium leading-[1.15] tracking-tight text-neutral-900 sm:text-4xl">
               Ready to build your technology pillars?
             </h3>
