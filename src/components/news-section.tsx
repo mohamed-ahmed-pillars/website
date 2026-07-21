@@ -9,7 +9,7 @@ import { TpLogo } from "@/components/logo";
 
 type NewsBanner =
   | { type: "lockup"; text: string }
-  | { type: "logo"; src: string; alt: string };
+  | { type: "logo"; src: string; alt: string; light?: boolean };
 
 const NEWS: {
   banner: NewsBanner;
@@ -18,6 +18,18 @@ const NEWS: {
   title: string;
   desc: string;
 }[] = [
+  {
+    banner: {
+      type: "logo",
+      src: "/huawei.avif",
+      alt: "Huawei Cloud",
+      light: true,
+    },
+    tags: ["Company"],
+    isNew: true,
+    title: "Technology Pillars is now an official Huawei Cloud Partner",
+    desc: "Certified Huawei Cloud expertise for hosting, migrations, and managed workloads across the region.",
+  },
   {
     banner: { type: "lockup", text: "TP ✕ EL EMPERATOR" },
     tags: ["Partnership"],
@@ -29,7 +41,7 @@ const NEWS: {
     banner: { type: "lockup", text: "TP ✕ AL AHLYA" },
     tags: ["Partnership"],
     isNew: true,
-    title: "Al Ahlya moves its estate to TP",
+    title: "Al Ahlya moves its estate to Technology Pillars",
     desc: "Migration from on-premises to TP Public Cloud, with networking, backups, and disaster recovery managed end to end.",
   },
   {
@@ -39,7 +51,7 @@ const NEWS: {
       alt: "Odoo",
     },
     tags: ["Company"],
-    title: "TP is now an official Odoo Partner",
+    title: "Technology Pillars is now an official Odoo Partner",
     desc: "Certified implementation, customization, and support for Odoo, delivered by our ERP Pillar team.",
   },
   {
@@ -49,7 +61,7 @@ const NEWS: {
       alt: "AWS",
     },
     tags: ["Company"],
-    title: "TP is now an official AWS Partner",
+    title: "Technology Pillars is now an official AWS Partner",
     desc: "Recognized expertise for AWS migrations, managed workloads, and cost optimization projects.",
   },
 ];
@@ -65,14 +77,29 @@ function Banner({ banner }: { banner: NewsBanner }) {
     );
   }
   return (
-    <div className="flex h-52 flex-col items-center justify-center gap-4 border-b border-border bg-[#0a0a0a]">
+    <div
+      className={cn(
+        "flex h-52 flex-col items-center justify-center gap-4 border-b border-border",
+        banner.light
+          ? "bg-[linear-gradient(to_bottom_right,#fbfbfb,#e3e3e3)]"
+          : "bg-[#0a0a0a]",
+      )}
+    >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={banner.src}
         alt={banner.alt}
-        className="h-14 w-auto object-contain"
+        className={cn(
+          "w-auto object-contain",
+          banner.light ? "h-28" : "h-14",
+        )}
       />
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-foreground/50">
+      <p
+        className={cn(
+          "font-mono text-[10px] font-bold uppercase tracking-[0.25em]",
+          banner.light ? "text-neutral-500" : "text-foreground/50",
+        )}
+      >
         Official Partner
       </p>
     </div>
@@ -100,7 +127,7 @@ export function NewsSection() {
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
             <h2 className="text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-              TP news &amp; updates
+              Technology Pillars news &amp; updates
             </h2>
             <div className="flex items-center gap-3">
               <button

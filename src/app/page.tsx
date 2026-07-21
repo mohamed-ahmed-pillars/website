@@ -94,6 +94,12 @@ export default function Home() {
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
+              src="/huawei.avif"
+              alt="Huawei Cloud Partner"
+              className="h-16 w-auto rounded-md bg-white object-contain px-2 py-1.5"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/Odoo-Official-Partner.webp"
               alt="Odoo Official Partner"
               className="h-16 w-auto object-contain"

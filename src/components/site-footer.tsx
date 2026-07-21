@@ -63,6 +63,12 @@ export function SiteFooter() {
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
+              src="/huawei.avif"
+              alt="Huawei Cloud Partner"
+              className="h-20 w-auto rounded-md bg-white object-contain px-2.5 py-2"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/Odoo-Official-Partner.webp"
               alt="Odoo Official Partner"
               className="h-20 w-auto object-contain"
